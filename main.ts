@@ -860,7 +860,7 @@ function detectFormat(lines: string[]): string {
       break;
     }
   }
-  if (first === -1) throw new ParseErr(1);
+  if (first === -1) throw new ParseErr(0); // no format detected at all
   if (lines[first].trim() === '*** Begin Patch') return 'v4a';
   const ch = lines[first].trimStart()[0];
   if (ch === '[' || ch === '{') return 'json';
